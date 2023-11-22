@@ -25,7 +25,7 @@ tasks.test {
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            groupId = "me.fionitos.discord-rpc"
+            groupId = "com.github.Fionitos"
             from(components["java"])
         }
     }
