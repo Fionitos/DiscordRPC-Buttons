@@ -154,9 +154,8 @@ public record RichPresence(@Nullable String state,
         public RichPresence build() {
             var timestamps = new Timestamps(start, end);
             Assets assets = null;
-            // Bad code, fix later
             if ((largeImage != null && largeText != null) || (smallImage != null && smallText != null)) {
-                if ((largeImage != null && (largeImage.isEmpty() || largeText.isEmpty())) // If largeImage isn't null, so isn't largeText
+                if ((largeImage != null && (largeImage.isEmpty() || largeText.isEmpty()))
                         || (smallImage != null && (smallImage.isEmpty() || smallText.isEmpty()))) {
                     throw new IllegalArgumentException("RichPresence must not be built with empty image strings");
                 }
