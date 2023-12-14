@@ -24,9 +24,11 @@ tasks.test {
 
 publishing {
     publications {
-        create<MavenPublication>("maven") {
-            groupId = "com.github.Fionitos"
+        create<MavenPublication>("lib") {
             from(components["java"])
+            groupId = "com.github.Fionitos"
+            artifactId = "DiscordRPC-Buttons"
+            version = "v1.0.1"
         }
     }
 }
