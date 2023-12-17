@@ -1,10 +1,10 @@
 plugins {
-    id("java")
+    id("java-library")
     id("maven-publish")
 }
 
-group = "me.fionitos"
-version = "1.0"
+group = "me.fionitos.discord"
+version = "1.0.2"
 
 repositories {
     mavenCentral()
@@ -24,11 +24,20 @@ tasks.test {
 
 publishing {
     publications {
-        create<MavenPublication>("lib") {
+        create<MavenPublication>("mavenJava") {
             from(components["java"])
-            groupId = "com.github.Fionitos"
-            artifactId = "DiscordRPC-Buttons"
-            version = "v1.0.1"
+        }
+    }
+
+    repositories {
+        maven {
+            name = "arlekin-repo"
+            url = uri("https://repo.arlekin.space/releases")
+
+            credentials {
+                username = System.getenv("MAVEN_ARLEKIN_ALIAS")
+                password = System.getenv("MAVEN_ARLEKIN_TOKEN")
+            }
         }
     }
 }

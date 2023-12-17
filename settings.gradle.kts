@@ -1,2 +1,2 @@
-rootProject.name = "DiscordRPCWithButtons"
+rootProject.name = "discordrpc-buttons"
 
