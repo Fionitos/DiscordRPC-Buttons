@@ -55,7 +55,7 @@ public class DiscordIPC {
     }
 
     /**
-     * @return the user that is logged in in the connected Discord instance
+     * @return the user that is logged in the connected Discord instance
      */
     public static IPCUser getUser() {
         return user;

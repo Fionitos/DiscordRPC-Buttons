@@ -117,9 +117,9 @@ public record RichPresence(@Nullable String state,
         }
 
         public Builder setAssets(@Nullable String largeImage,
-                                                                                    @Nullable String largeText,
-                                                                                    @Nullable String smallImage,
-                                                                                    @Nullable String smallText) {
+                                 @Nullable String largeText,
+                                 @Nullable String smallImage,
+                                 @Nullable String smallText) {
             this.largeImage = largeImage;
             this.largeText = largeText;
             this.smallImage = smallImage;
