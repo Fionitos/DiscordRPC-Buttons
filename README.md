@@ -18,7 +18,7 @@ repositories {
 }
 
 dependencies {
-    implementation "me.fionitos.discord:discordrpc-buttons:1.0.2"
+    implementation "me.fionitos.discord:discordrpc-buttons:1.0.3"
 }
 ```
 
@@ -35,7 +35,7 @@ repositories {
 }
 
 dependencies {
-    implementation("me.fionitos.discord:discordrpc-buttons:1.0.2")
+    implementation("me.fionitos.discord:discordrpc-buttons:1.0.3")
 }
 ```
 
