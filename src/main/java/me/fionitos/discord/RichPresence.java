@@ -7,7 +7,9 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public record RichPresence(@Nullable String state,
                            @Nullable String details,
@@ -101,8 +103,7 @@ public record RichPresence(@Nullable String state,
         public String spectate = null;
         public String match = null;
 
-        public List<String> buttons = null;
-        public List<String> buttonUrls = null;
+        public Map<String, String> buttons = null;
 
         public Builder setText(@Nullable String details, @Nullable String state) {
             this.state = state;
@@ -141,13 +142,8 @@ public record RichPresence(@Nullable String state,
             return this;
         }
 
-        public Builder addButton(@NotNull String name, @NotNull String url) {
-            if (buttons == null) {
-                buttons = new ArrayList<>();
-                buttonUrls = new ArrayList<>();
-            }
-            buttons.add(name);
-            buttonUrls.add(url);
+        public Builder setButtons(@NotNull Map<String, String> buttonsMap) {
+            buttons = new HashMap<>(buttonsMap);;
             return this;
         }
 
@@ -172,13 +168,14 @@ public record RichPresence(@Nullable String state,
                 secrets = new Secrets(join, spectate, match);
             }
 
-            List<Button> buttons = new ArrayList<>();
-            if (this.buttons != null) {
-                for (int i = 0; i < this.buttons.size(); i++) {
-                    buttons.add(new Button(this.buttons.get(i), buttonUrls.get(i)));
+            List<Button> buttons = null;
+            if (this.buttons != null && !this.buttons.isEmpty()) {
+                buttons = new ArrayList<>();
+                for (Map.Entry<String, String> entry : this.buttons.entrySet()) {
+                    buttons.add(new Button(entry.getKey(), entry.getValue()));
                 }
             }
-            buttons = buttons.isEmpty() ? null : buttons;
+
             return new RichPresence(state, details, timestamps, assets, party, secrets, buttons);
         }
     }
