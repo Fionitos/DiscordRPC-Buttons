@@ -4,7 +4,7 @@ plugins {
 }
 
 group = "me.fionitos.discord"
-version = "1.0.5"
+version = "1.0.6"
 
 java {
     toolchain {
@@ -19,4 +19,15 @@ repositories {
 dependencies {
     implementation("org.jetbrains:annotations:23.0.0")
     implementation("com.google.code.gson:gson:2.10.1")
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("mavenJava") {
+            from(components["java"])
+            groupId = "com.github.Fionitos"
+            artifactId = "discordrpc-buttons"
+            version = "1.0.5"
+        }
+    }
 }
