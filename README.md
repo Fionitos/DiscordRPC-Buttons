@@ -1,42 +1,35 @@
 # DiscordRPC with Buttons
-This library is for interfacing your games with a locally running Discord. Among all other libraries, this is the presence of additional functions for customizing functions.
+This library is for interfacing your games with a locally running Discord. Among all other libraries, this one has additional functions for customizing presence.
 
 Requirements: Java 17
 
 The library is tested on Windows, Linux and macOS.
 
-## Gradle
-<details open>
-<summary>Groovy</summary>
+[![](https://jitpack.io/v/Fionitos/discordrpc-buttons.svg)](https://jitpack.io/#Fionitos/discordrpc-buttons)
+
+## Gradle (Groovy)
 
 ```groovy
 repositories {
-    maven {
-        name = "arlekin"
-        url = "https://repo.arlekin.space/releases"
-    }
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
-    implementation "me.fionitos.discord:discordrpc-buttons:1.0.3"
+    implementation 'com.github.Fionitos:discordrpc-buttons:1.0.6'
 }
 ```
 
-</details>
-<details>
-<summary>Kotlin</summary>
+```maven
+<repositories>
+    <repository>
+        <id>jitpack.io</id>
+        <url>https://jitpack.io</url>
+    </repository>
+</repositories>
 
-```kotlin
-repositories {
-    maven {
-        name = "arlekin"
-        url = uri("https://repo.arlekin.space/releases")
-    }
-}
-
-dependencies {
-    implementation("me.fionitos.discord:discordrpc-buttons:1.0.3")
-}
+<dependency>
+    <groupId>com.github.Fionitos</groupId>
+    <artifactId>discordrpc-buttons</artifactId>
+    <version>1.0.6</version>
+</dependency>
 ```
-
-</details>
